@@ -6,12 +6,15 @@ environment:
   sdk: '>=2.19.0 <3.0.0'
 
 dependencies:
+  animated_notch_bottom_bar: ^0.0.6
+  cloud_firestore: ^4.5.2
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.4.1
   firebase_core: ^2.9.0
   flutter:
     sdk: flutter
   flutter_login: ^4.1.1
+  flutter_svg: ^2.0.5
   get: 4.6.5
 
 dev_dependencies:

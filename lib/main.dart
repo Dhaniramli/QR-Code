@@ -22,14 +22,20 @@ class MyApp extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: auth.authStateChanges(),
       builder: (context, snapAuth) {
-        if (snapAuth.connectionState == ConnectionState.waiting) {
-          return LoadingScreen();
-        }
         return GetMaterialApp(
           title: 'QR Code',
-          initialRoute: snapAuth.hasData ? Routes.home : Routes.login,
+          initialRoute: Routes.login,
           getPages: AppPages.routes,
         );
+
+        // if (snapAuth.connectionState == ConnectionState.waiting) {
+        //   return const LoadingScreen();
+        // }
+        // return GetMaterialApp(
+        //   title: 'QR Code',
+        //   initialRoute: snapAuth.hasData ? Routes.mainNavigationBar : Routes.login,
+        //   getPages: AppPages.routes,
+        // );
       },
     );
   }
