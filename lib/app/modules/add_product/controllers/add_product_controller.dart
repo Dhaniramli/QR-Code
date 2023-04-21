@@ -1,23 +1,47 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AddProductController extends GetxController {
-  //TODO: Implement AddProductController
+  late TextEditingController codeC;
+  late TextEditingController productNameC;
+  late TextEditingController qtyC;
 
-  final count = 0.obs;
+  RxBool isLoading = false.obs;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  Future<Map<String, dynamic>> addProduct(Map<String, dynamic> data) async {
+    try {
+      var hasil = await firestore.collection('products').add(data);
+      await firestore.collection('products').doc(hasil.id).update({
+        "product_id": hasil.id,
+      });
+
+      return {
+        "error": false,
+        "message": "Berhasil menambah produk",
+      };
+    } catch (err) {
+      return {
+        "error": true,
+        "message": "Tidak dapat menambah produk",
+      };
+    }
+  }
+
   @override
   void onInit() {
+    codeC = TextEditingController();
+    productNameC = TextEditingController();
+    qtyC = TextEditingController();
     super.onInit();
   }
 
   @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
   void onClose() {
+    codeC.dispose();
+    productNameC.dispose();
+    qtyC.dispose();
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

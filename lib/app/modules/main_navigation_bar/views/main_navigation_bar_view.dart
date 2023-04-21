@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../controllers/main_navigation_bar_controller.dart';
 
 class MainNavigationBarView extends StatelessWidget {
-
   const MainNavigationBarView({super.key});
 
   @override
@@ -22,11 +21,11 @@ class MainNavigationBarView extends StatelessWidget {
                   bottomBarItems: const [
                     BottomBarItem(
                       inActiveItem: Icon(
-                        Icons.post_add_rounded,
+                        Icons.home,
                         color: Colors.black,
                       ),
                       activeItem: Icon(
-                        Icons.post_add_rounded,
+                        Icons.home,
                         color: Colors.orange,
                       ),
                       itemLabel: 'Page 1',
@@ -44,26 +43,16 @@ class MainNavigationBarView extends StatelessWidget {
                     ),
                     BottomBarItem(
                       inActiveItem: Icon(
-                        Icons.qr_code,
+                        Icons.post_add_rounded,
                         color: Colors.black,
                       ),
                       activeItem: Icon(
-                        Icons.qr_code,
+                        Icons.post_add_rounded,
                         color: Colors.orange,
                       ),
                       itemLabel: 'Page 3',
                     ),
-                    BottomBarItem(
-                      inActiveItem: Icon(
-                        Icons.document_scanner_outlined,
-                        color: Colors.black,
-                      ),
-                      activeItem: Icon(
-                        Icons.document_scanner_outlined,
-                        color: Colors.orange,
-                      ),
-                      itemLabel: 'Page 4',
-                    ),
+                    
                   ],
                   onTap: (index) {
                     /// control your animation using page controller

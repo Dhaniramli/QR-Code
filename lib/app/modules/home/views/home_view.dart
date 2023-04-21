@@ -8,8 +8,9 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('QR Code'),
+        title: const Text('Home'),
         centerTitle: true,
+        backgroundColor: Colors.orange,
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(20),
@@ -18,44 +19,46 @@ class HomeView extends GetView<HomeController> {
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
         ),
-        itemCount: 4,
+        itemCount: 2,
         itemBuilder: (context, index) {
           late String title;
           late IconData icon = Icons.error;
 
           switch (index) {
             case 0:
-              title = 'Tambah Produk';
-              icon = Icons.post_add_rounded;
-              break;
-            case 1:
-              title = 'List Produk';
-              icon = Icons.list_alt_outlined;
-              break;
-            case 2:
-              title = 'Kode QR';
+              title = 'Scan Kode';
               icon = Icons.qr_code;
               break;
-            case 3:
+            case 1:
               title = 'Katalog';
               icon = Icons.document_scanner_outlined;
               break;
           }
 
           return Material(
-            color: Colors.grey,
+            color: const Color.fromARGB(255, 255, 192, 97),
+            borderRadius: BorderRadius.circular(20),
             child: InkWell(
+              borderRadius: BorderRadius.circular(20),
               onTap: () {},
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 50,
+                  Container(
+                    height: 50.0,
                     width: 50.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                     child: Icon(icon, size: 50.0),
                   ),
                   const SizedBox(height: 10.0),
-                  Text(title),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
             ),
