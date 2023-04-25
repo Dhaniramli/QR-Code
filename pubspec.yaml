@@ -16,6 +16,9 @@ dependencies:
   flutter_login: ^4.1.1
   flutter_svg: ^2.0.5
   get: 4.6.5
+  open_file: ^3.2.1
+  path_provider: ^2.0.14
+  pdf: ^3.10.1
   qr_flutter: ^4.0.0
 
 dev_dependencies:
