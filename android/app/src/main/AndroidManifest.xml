@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dhaniexpert.qr_qode">
    <application
-        android:label="qr_qode"
+        android:label="QR Code"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

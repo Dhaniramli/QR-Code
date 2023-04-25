@@ -190,6 +190,25 @@ class HomeController extends GetxController {
     await OpenFile.open(file.path);
   }
 
+  Future<Map<String, dynamic>> getProductById(String code) async {
+    try {
+      var hasil = await firestore.collection("products").where("code", isEqualTo: code).get();
+
+      if (hasil.docs.isEmpty) {
+        return {"error": true, "message": "Tidak ada produk ini di database"};
+      }
+
+      Map<String, dynamic> data = hasil.docs.first.data();
+
+      return {
+        "error": false,
+        "message": "Berhasil mendapatkan detail produk",
+        "data": ProductModel.fromJson(data),
+      };
+    } catch (err) {
+      return {"error": true, "message": "Tidak mendapatkan detail produk"};
+    }
+  }
   // @override
   // void onInit() {
   //   super.onInit();

@@ -13,6 +13,7 @@ dependencies:
   firebase_core: ^2.9.0
   flutter:
     sdk: flutter
+  flutter_barcode_scanner: ^2.0.0
   flutter_login: ^4.1.1
   get: 4.6.5
   open_file: ^3.2.1
