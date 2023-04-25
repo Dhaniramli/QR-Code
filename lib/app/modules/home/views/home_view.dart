@@ -6,6 +6,8 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(HomeController());
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
@@ -23,15 +25,20 @@ class HomeView extends GetView<HomeController> {
         itemBuilder: (context, index) {
           late String title;
           late IconData icon = Icons.error;
+          late VoidCallback onTap;
 
           switch (index) {
             case 0:
               title = 'Scan Kode';
               icon = Icons.qr_code;
+              onTap = () {};
               break;
             case 1:
               title = 'Katalog';
               icon = Icons.document_scanner_outlined;
+              onTap = () {
+                controller.downloadCatalog();
+              };
               break;
           }
 
@@ -40,7 +47,7 @@ class HomeView extends GetView<HomeController> {
             borderRadius: BorderRadius.circular(20),
             child: InkWell(
               borderRadius: BorderRadius.circular(20),
-              onTap: () {},
+              onTap: onTap,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
